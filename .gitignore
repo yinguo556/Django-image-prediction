@@ -65,6 +65,12 @@ dist/
 requirements/local.txt
 requirements/production.txt
 
+# 排除虚拟环境但保留requirements.txt
+Lib/
+Include/
+Scripts/
+pyvenv.cfg
+
 # 日志文件
 *.log
 logs/
@@ -97,11 +103,14 @@ htmlcov/
 .mypy_cache/
 .flake8
 
-# 压缩文件
-*.zip
-*.tar.gz
-*.tar.bz2
-*.tar.xz
+# 压缩文件（但保留项目打包文件）
+# *.zip
+# *.tar.gz
+# *.tar.bz2
+# *.tar.xz
+
+# 排除其他压缩文件但保留项目相关的
+!mysite_backup.zip
 
 # 备份文件
 *.bak
