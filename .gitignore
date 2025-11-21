@@ -1,0 +1,64 @@
+# 虚拟环境
+venv/
+ENV/
+.venv/
+ysjzuoye/
+
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Django相关文件
+*.sqlite3
+*.db
+media/
+staticfiles/
+.env
+.env.local
+.env.production
+
+# 编辑器配置文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+Thumbs.db
+.DS_Store
+
+# 构建和部署文件
+build/
+dist/
+*.egg-info/
+requirements/local.txt
+requirements/production.txt
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# 测试相关
+.pytest_cache/
+coverage.xml
+.coverage
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+# 备份文件
+*.bak
+*.old
+mysite_backup.zip

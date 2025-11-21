@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垃圾分类预测系统 - 预测结果</title>
+    <!-- 本地Bootstrap CSS -->
+    <style>
+        /* 基础重置样式 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* 容器样式 */
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+        
+        /* 行和列样式 */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        
+        .col-md-12,
+        .col-md-6,
+        .col-sm-6 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .col-md-12 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        
+        @media (min-width: 576px) {
+            .col-sm-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        
+        /* 文本对齐 */
+        .text-center {
+            text-align: center !important;
+        }
+        
+        .justify-content-center {
+            justify-content: center !important;
+        }
+        
+        /* 卡片样式 */
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-header {
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        }
+        
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+        
+        .btn-lg {
+            padding: 0.5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: 0.3rem;
+        }
+        
+        /* 间距 */
+        .mb-3,
+        .mb-4,
+        .mb-5 {
+            margin-bottom: 1rem !important;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+        
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+        
+        .p-4 {
+            padding: 1.5rem !important;
+        }
+        
+        /* 图片样式 */
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .rounded {
+            border-radius: 0.25rem !important;
+        }
+        
+        /* 进度条样式 */
+        .progress {
+            display: flex;
+            height: 1rem;
+            overflow: hidden;
+            font-size: 0.75rem;
+            background-color: #e9ecef;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #007bff;
+            transition: width 0.6s ease;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        /* 标题样式 */
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+        }
+        
+        /* 段落样式 */
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+        
+        /* 文本大小 */
+        .text-sm {
+            font-size: 0.875rem !important;
+        }
+        
+        .text-lg {
+            font-size: 1.125rem !important;
+        }
+        
+        /* 文本颜色 */
+        .text-dark {
+            color: #212529 !important;
+        }
+        
+        .text-muted {
+            color: #6c757d !important;
+        }
+        
+        /* 字体粗细 */
+        .font-bold {
+            font-weight: bold !important;
+        }
+        
+        /* 文本背景 */
+        .bg-success,
+        .bg-warning,
+        .bg-info {
+            color: #fff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        
+        .bg-success {
+            background-color: #28a745 !important;
+        }
+        
+        .bg-warning {
+            background-color: #ffc107 !important;
+            color: #212529;
+        }
+        
+        .bg-info {
+            background-color: #17a2b8 !important;
+        }
+        
+        /* 列表样式 */
+        .list-unstyled {
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        /* 阴影 */
+        .shadow-sm {
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+        }
+        
+        /* 背景色 */
+        .bg-white {
+            background-color: #fff !important;
+        }
+        
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+        
+        /* 过渡效果 */
+        .transition-all {
+            transition: all 0.3s ease !important;
+        }
+    </style>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            flex: 1;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #343a40;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        .result-card {
+            background-color: #e3f2fd;
+            border-left: 5px solid #2196f3;
+        }
+        .image-container {
+            max-height: 400px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .uploaded-image {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .uploaded-image:hover {
+            transform: scale(1.05);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #545b62;
+            border-color: #4e555b;
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>垃圾分类预测系统</h1>
+                    <p class="lead">预测结果展示</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card mb-5">
+                    <div class="card-header text-center">
+                        <h3>预测结果</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- 左侧显示上传的图片 -->
+                            <div class="col-md-6 mb-4">
+                                <h4 class="text-center mb-3">上传的图片</h4>
+                                <div class="image-container border rounded">
+                                    <img src="{{ image.image.url }}" alt="上传的图片" class="uploaded-image">
+                                </div>
+                            </div>
+                            
+                            <!-- 右侧显示预测结果 -->
+                            <div class="col-md-6">
+                                <h4 class="text-center mb-3">预测分析</h4>
+                                <div class="card result-card p-4 mb-4">
+                                    <h5>预测结果</h5>
+                                    <p class="text-lg font-bold">{{ image.prediction_result }}</p>
+                                </div>
+                                
+                                <div class="card p-4">
+                                    <h5>图片信息</h5>
+                                    <ul class="list-unstyled">
+                                        <li><strong>上传时间:</strong> {{ image.uploaded_at|date:"Y-m-d H:i:s" }}</li>
+                                        <li><strong>预测时间:</strong> {{ image.predicted_at|date:"Y-m-d H:i:s" }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 操作按钮 -->
+                        <div class="mt-5 text-center">
+                            <a href="{% url 'upload' %}" class="btn btn-primary btn-lg">
+                                上传新图片
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2025 垃圾分类预测系统 | 技术支持: Django</p>
+        </div>
+    </footer>
+
+    <!-- 移除外部JS依赖，使用简化的交互效果 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 卡片悬停效果
+            var cards = document.querySelectorAll('.card');
+            cards.forEach(function(card) {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)';
+                });
+            });
+            
+            // 按钮悬停效果
+            var buttons = document.querySelectorAll('.btn');
+            buttons.forEach(function(button) {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // 进度条动画效果
+            var progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(function(bar) {
+                var width = bar.style.width || bar.getAttribute('style').match(/width:\s*(\d+)%/)[1] + '%';
+                bar.style.width = '0%';
+                setTimeout(function() {
+                    bar.style.width = width;
+                }, 200);
+            });
+            
+            // 结果显示动画
+            var resultsContainer = document.querySelector('.row.mb-5');
+            if (resultsContainer) {
+                resultsContainer.style.opacity = '0';
+                resultsContainer.style.transform = 'translateY(20px)';
+                setTimeout(function() {
+                    resultsContainer.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    resultsContainer.style.opacity = '1';
+                    resultsContainer.style.transform = 'translateY(0)';
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>
