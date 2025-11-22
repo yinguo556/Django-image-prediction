@@ -11,6 +11,5 @@ urlpatterns = [
     path('api/prediction/<int:image_id>/', views.get_prediction_api, name='prediction_api'),
 ]
 
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# 添加媒体文件URL路由，移除DEBUG条件，使生产环境也能访问
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

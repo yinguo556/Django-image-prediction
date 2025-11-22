@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-dvdz7jvdz$f9q5lp-*58!mdzf3yu7024))%_sr6-x=(1=^fztn"
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 生产环境部署时，请将DEBUG设置为False
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# 生产环境部署时，请添加你的域名或IP地址
+ALLOWED_HOSTS = []  # 例如: ['yourdomain.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
