@@ -1,0 +1,153 @@
+# 虚拟环境
+venv/
+ENV/
+.venv/
+django-ysj/
+env/
+ENV.local/
+ENV.development.local/
+ENV.test.local/
+ENV.production.local/
+
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Django相关文件
+# 数据库文件
+*.sqlite3
+*.db
+*.db-journal
+*.db-shm
+db.sqlite3
+db.sqlite3-journal
+*.db-wal
+*.myd
+*.myi
+*.frm
+*.ibd
+*.ibdata1
+*.ib_logfile*
+mysql/data/
+postgres/data/
+database/
+
+# 媒体和静态文件
+media/
+staticfiles/
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# 日志和其他文件
+*.log
+local_settings.py
+django_debug.log*
+celerybeat-schedule
+celerybeat.pid
+pydevd.py
+pydevd_attach_to_process
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# 编辑器配置文件
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
+.python-version
+
+# 操作系统文件
+Thumbs.db
+.DS_Store
+
+# 构建和部署文件
+build/
+dist/
+*.egg-info/
+requirements/local.txt
+requirements/production.txt
+
+# 排除虚拟环境但保留requirements.txt
+Lib/
+Include/
+Scripts/
+pyvenv.cfg
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+*.pid
+*.seed
+*.pid.lock
+*.pid.*
+*.pid.*.lock
+*.log.*.bak
+*.log.*.old
+*.log.*.gz
+*.log.*.1
+*.log.*.2
+*.log.*.3
+
+# 测试相关
+.pytest_cache/
+coverage.xml
+.coverage
+nosetests.xml
+.tox/
+htmlcov/
+.coverage.*
+.pytest_cache/
+.mypy_cache/
+.flake8
+
+# 压缩文件（但保留项目打包文件）
+# *.zip
+# *.tar.gz
+# *.tar.bz2
+# *.tar.xz
+
+# 排除其他压缩文件但保留项目相关的
+!mysite_backup.zip
+
+# 备份文件
+*.bak
+*.old
+*.save
+*.sav
+*.~*
+backup/*
+backups/*
+
+# 排除项目压缩包
+project_backup.zip
+mysite_*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+
+share/

@@ -2,7 +2,7 @@
 venv/
 ENV/
 .venv/
-ysjzuoye/
+django-ysj/
 env/
 ENV.local/
 ENV.development.local/
@@ -136,9 +136,15 @@ htmlcov/
 # 备份文件
 *.bak
 *.old
-mysite_backup.zip
 *.save
 *.sav
 *.~*
 backup/*
 backups/*
+
+# 排除项目压缩包
+project_backup.zip
+mysite_*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz

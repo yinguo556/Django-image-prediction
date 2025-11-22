@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-dvdz7jvdz$f9q5lp-*58!mdzf3yu7024))%_sr6-x=(1=^fztn
 DEBUG = True
 
 # 生产环境部署时，请添加你的域名或IP地址
-ALLOWED_HOSTS = []  # 例如: ['yourdomain.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['8.217.96.210','localhost']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "mysite",  # 添加主项目到已安装应用
+    "garbage_app",  # 添加垃圾分类应用
 ]
 
 MIDDLEWARE = [
@@ -105,9 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = "UTC"
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
